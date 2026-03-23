@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>smilior — Video Mockup</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            mono: ['JetBrains Mono', 'monospace'],
+            sans: ['Inter', 'Noto Sans JP', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50:  '#fef7ee',
+              100: '#fdecd8',
+              200: '#fad5b0',
+              300: '#f6b87e',
+              400: '#f2994a',
+              500: '#ee7d24',
+              600: '#df631a',
+              700: '#b94b17',
+              800: '#933c1b',
+              900: '#773319',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .frame {
+      width: 375px;
+      height: 667px;
+    }
+    .cursor-blink {
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    .logo-smile {
+      background: linear-gradient(135deg, #f2994a 0%, #ee7d24 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+<body class="bg-neutral-950 text-white min-h-screen py-16 px-4">
+
+  <!-- Header -->
+  <div class="max-w-6xl mx-auto mb-16 text-center">
+    <p class="text-neutral-500 text-xs font-mono tracking-widest uppercase mb-3">Video Mockup</p>
+    <h1 class="text-2xl font-semibold font-sans tracking-tight">30s Short — 1080 x 1920</h1>
+  </div>
+
+  <!-- 3 Scenes -->
+  <div class="max-w-6xl mx-auto flex flex-wrap justify-center gap-12">
+
+    <!-- ==================== -->
+    <!-- Scene 1: Title (0-3s) -->
+    <!-- ==================== -->
+    <div class="flex flex-col items-center">
+      <div class="frame rounded-3xl overflow-hidden border border-neutral-800 bg-neutral-950 flex flex-col">
+
+        <div class="flex-1 flex flex-col items-center justify-center px-8">
+          <!-- smilior logo mark -->
+          <div class="mb-10 flex items-center gap-2">
+            <div class="w-6 h-6 rounded-full bg-gradient-to-br from-brand-400 to-brand-500 flex items-center justify-center">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+                <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                <circle cx="9" cy="9" r="0.5" fill="white" stroke="none"/>
+                <circle cx="15" cy="9" r="0.5" fill="white" stroke="none"/>
+              </svg>
+            </div>
+            <span class="text-[11px] font-mono text-neutral-500 tracking-wider">smilior.com</span>
+          </div>
+
+          <!-- Category -->
+          <p class="text-brand-400 text-[10px] font-mono tracking-[0.25em] uppercase mb-6">AI Driven Dev Tips</p>
+
+          <!-- Main title -->
+          <h2 class="text-[28px] font-bold text-center leading-[1.3] tracking-tight font-sans">
+            Claude Code<br>
+            <span class="text-neutral-400 font-light text-xl">ショートカットキー 5選</span>
+          </h2>
+
+          <!-- Prompt -->
+          <div class="mt-12 font-mono text-[13px]">
+            <span class="text-brand-400">~</span>
+            <span class="text-neutral-600 ml-2">$</span>
+            <span class="text-neutral-400 ml-2">claude tips</span>
+            <span class="cursor-blink text-brand-400 ml-0.5">|</span>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="px-6 py-4 flex items-center justify-between">
+          <span class="text-[10px] font-mono text-neutral-600">01 / 05</span>
+          <span class="text-[10px] font-mono text-neutral-600">0:30</span>
+        </div>
+      </div>
+      <p class="mt-4 text-[11px] text-neutral-600 font-mono">0 – 3 sec</p>
+    </div>
+
+    <!-- ========================== -->
+    <!-- Scene 2: Main Body (3-25s) -->
+    <!-- ========================== -->
+    <div class="flex flex-col items-center">
+      <div class="frame rounded-3xl overflow-hidden border border-neutral-800 bg-neutral-950 flex flex-col">
+
+        <!-- Brand bar -->
+        <div class="px-5 pt-4 pb-2 flex items-center justify-between">
+          <div class="flex items-center gap-1.5">
+            <div class="w-4 h-4 rounded-full bg-gradient-to-br from-brand-400 to-brand-500 flex items-center justify-center">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round">
+                <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+              </svg>
+            </div>
+            <span class="text-[10px] font-mono text-neutral-500">smilior</span>
+          </div>
+          <span class="text-[10px] font-mono text-brand-400/60">AI DRIVEN DEV TIPS</span>
+        </div>
+
+        <!-- Terminal window -->
+        <div class="mx-4 flex-1 flex flex-col rounded-xl border border-neutral-800 bg-[#0a0a0a] overflow-hidden">
+          <!-- Window chrome -->
+          <div class="px-4 py-3 flex items-center gap-2 border-b border-neutral-800/60">
+            <div class="flex gap-1.5">
+              <div class="w-2.5 h-2.5 rounded-full bg-neutral-700"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-neutral-700"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-neutral-700"></div>
+            </div>
+            <span class="text-[10px] font-mono text-neutral-600 ml-2">Terminal</span>
+          </div>
+
+          <!-- Terminal body -->
+          <div class="flex-1 px-4 py-4 font-mono text-[12px] leading-[1.8] overflow-hidden">
+            <!-- Command -->
+            <div class="mb-5">
+              <span class="text-brand-400">$</span>
+              <span class="text-neutral-300 ml-2">claude --shortcuts</span>
+            </div>
+
+            <!-- Output -->
+            <div class="space-y-3 text-neutral-400">
+              <div class="flex items-baseline gap-3">
+                <span class="text-brand-400 w-4 text-right shrink-0">1</span>
+                <div>
+                  <span class="text-white font-medium">Ctrl + C</span>
+                  <span class="text-neutral-600 mx-2">&mdash;</span>
+                  <span>応答をキャンセル</span>
+                </div>
+              </div>
+
+              <div class="flex items-baseline gap-3">
+                <span class="text-brand-400 w-4 text-right shrink-0">2</span>
+                <div>
+                  <span class="text-white font-medium">Ctrl + L</span>
+                  <span class="text-neutral-600 mx-2">&mdash;</span>
+                  <span>画面をクリア</span>
+                </div>
+              </div>
+
+              <div class="flex items-baseline gap-3">
+                <span class="text-brand-400 w-4 text-right shrink-0">3</span>
+                <div>
+                  <span class="text-white font-medium">Escape</span>
+                  <span class="text-neutral-600 mx-2">&mdash;</span>
+                  <span>入力をキャンセル</span>
+                </div>
+              </div>
+
+              <div class="flex items-baseline gap-3">
+                <span class="text-brand-400 w-4 text-right shrink-0">4</span>
+                <div>
+                  <span class="text-white font-medium">/command</span>
+                  <span class="text-neutral-600 mx-2">&mdash;</span>
+                  <span>スラッシュコマンド</span>
+                </div>
+              </div>
+
+              <div class="flex items-baseline gap-3">
+                <span class="text-brand-400 w-4 text-right shrink-0">5</span>
+                <div>
+                  <span class="text-white font-medium">Tab</span>
+                  <span class="text-neutral-600 mx-2">&mdash;</span>
+                  <span>オートコンプリート</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cursor -->
+            <div class="mt-5">
+              <span class="text-brand-400">$</span>
+              <span class="cursor-blink text-brand-400 ml-2">|</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Subtitle area -->
+        <div class="px-6 py-5">
+          <p class="text-center text-[13px] text-neutral-300 font-sans leading-relaxed">
+            ショートカットキーで<span class="text-white font-semibold">作業効率を最大化</span>
+          </p>
+        </div>
+      </div>
+      <p class="mt-4 text-[11px] text-neutral-600 font-mono">3 – 25 sec</p>
+    </div>
+
+    <!-- ======================== -->
+    <!-- Scene 3: Ending (25-30s) -->
+    <!-- ======================== -->
+    <div class="flex flex-col items-center">
+      <div class="frame rounded-3xl overflow-hidden border border-neutral-800 bg-neutral-950 flex flex-col">
+
+        <div class="flex-1 flex flex-col items-center justify-center px-8">
+          <!-- smilior logo -->
+          <div class="mb-8 flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-brand-400 to-brand-500 flex items-center justify-center">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+                <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                <circle cx="9" cy="9" r="0.5" fill="white" stroke="none"/>
+                <circle cx="15" cy="9" r="0.5" fill="white" stroke="none"/>
+              </svg>
+            </div>
+            <span class="text-lg font-semibold tracking-tight logo-smile">smilior</span>
+          </div>
+
+          <!-- Tagline -->
+          <p class="text-neutral-500 text-[10px] font-mono tracking-[0.2em] uppercase mb-10">Share the smile of discovery</p>
+
+          <!-- Book title -->
+          <h3 class="text-[22px] font-bold text-center tracking-tight font-sans mb-2">
+            AI駆動開発
+          </h3>
+          <p class="text-neutral-400 text-base font-light font-sans mb-8">実践ガイド</p>
+
+          <!-- Link -->
+          <div class="rounded-lg border border-neutral-800 px-5 py-3 mb-8">
+            <span class="text-[12px] font-mono text-brand-400">smilior.com</span>
+          </div>
+
+          <!-- Separator -->
+          <div class="w-12 h-px bg-neutral-800 mb-8"></div>
+
+          <!-- Follow -->
+          <div class="border border-neutral-700 rounded-full px-6 py-2.5 hover:border-brand-400/40 transition-colors">
+            <span class="text-[12px] font-medium font-sans text-white">Follow for more tips</span>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="px-6 py-4 flex items-center justify-between">
+          <span class="text-[10px] font-mono text-neutral-600">@smilior_dev</span>
+          <span class="text-[10px] font-mono text-neutral-600">fin.</span>
+        </div>
+      </div>
+      <p class="mt-4 text-[11px] text-neutral-600 font-mono">25 – 30 sec</p>
+    </div>
+
+  </div>
+
+  <!-- Notes -->
+  <div class="max-w-3xl mx-auto mt-16 border-t border-neutral-900 pt-8">
+    <div class="grid grid-cols-3 gap-8 text-[11px] text-neutral-600 font-sans">
+      <div>
+        <p class="text-neutral-400 font-medium mb-2">Title</p>
+        <p>smiliorロゴ → カテゴリ → タイトルの順にフェードイン。ブランドカラーのアクセント。</p>
+      </div>
+      <div>
+        <p class="text-neutral-400 font-medium mb-2">Body</p>
+        <p>上部にブランドバー常駐。ターミナルにコマンドがタイプされ、各行が順番に表示。字幕同期。</p>
+      </div>
+      <div>
+        <p class="text-neutral-400 font-medium mb-2">Ending</p>
+        <p>smiliorロゴ + タグライン表示。smilior.comリンクとフォロー誘導で書籍への導線。</p>
+      </div>
+    </div>
+
+    <!-- Brand guide note -->
+    <div class="mt-8 pt-6 border-t border-neutral-900">
+      <p class="text-[11px] text-neutral-500 font-sans">
+        <span class="text-neutral-400 font-medium">Brand:</span>
+        smilior = smile + similar — 「発見の笑顔を共有する」。ブランドカラーはウォームオレンジ（#F2994A）。
+        技術の堅さとアプローチャブルな親しみやすさのバランスを表現。
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>
