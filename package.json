@@ -9,7 +9,8 @@
   "scripts": {
     "preview": "remotion preview src/index.ts",
     "render": "remotion render src/index.ts SmiliorTips --output output/video.mp4",
-    "build": "tsc --noEmit"
+    "build": "tsc --noEmit",
+    "generate": "tsx scripts/pipeline.ts"
   },
   "repository": {
     "type": "git",

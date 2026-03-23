@@ -13,27 +13,54 @@ description: |
 
 プロジェクト: `/Users/masa/dev/remotion-auto-generate`
 
-## パイプライン概要
+## 自動パイプライン（推奨）
 
+configファイルを作成して1コマンドで動画生成:
+
+```bash
+npx tsx scripts/pipeline.ts --config config/sample-git.json
 ```
-ユーザー指示（トピック）
-  ↓
-Step 1: コンテンツ設計（タイトル・Tips・ナレーション原稿）
-  ↓
-Step 2: ソースファイル更新（4ファイル）
-  ↓
-Step 3: TTS音声生成（Gemini 2.5 Flash）
-  ↓
-Step 4: SRT字幕生成（Whisper）
-  ↓
-Step 5: SRTデータ更新 + Tip表示フレーム同期 ← 最重要
-  ↓
-Step 6: Remotionレンダリング
-  ↓
-Step 7: BGMミックス（ffmpeg）
-  ↓
-output/final.mp4
+
+pipeline.tsが以下を自動実行する:
+1. TTS音声生成（Gemini API）
+2. SRT字幕生成（Whisper）
+3. SRT誤認識修正 + Tip表示フレーム自動計算
+4. ソースファイル一括更新（constants.ts, TitleScene, TerminalScene, srt-data）
+5. 型チェック + Remotionレンダリング
+6. BGMミックス（尺自動検出）
+
+### configファイルの形式
+
+`config/` ディレクトリにJSONを作成:
+
+```json
+{
+  "title": { "main": "Git", "sub": "時短コマンド 5選" },
+  "command": "git --tips",
+  "tips": [
+    { "key": "git stash", "desc": "作業を一時退避" },
+    { "key": "git log --oneline", "desc": "履歴を一行表示" },
+    { "key": "git diff --staged", "desc": "ステージ済みの差分確認" },
+    { "key": "git commit --amend", "desc": "直前のコミットを修正" },
+    { "key": "git switch -", "desc": "前のブランチに戻る" }
+  ],
+  "narration": "Gitの時短コマンド、5つ紹介します。...",
+  "bgm": "paulyudin-minimal-164833.mp3"
+}
 ```
+
+### Claude Codeでの使い方
+
+ユーザーがトピックを指示したら:
+1. configファイルを生成（title, command, tips, narration, bgmを設計）
+2. `npx tsx scripts/pipeline.ts --config <path>` を実行
+3. `output/final.mp4` を確認
+
+---
+
+## 手動パイプライン（参考）
+
+自動パイプラインで問題が出た場合のステップバイステップ手順:
 
 ## Step 1: コンテンツ設計
 

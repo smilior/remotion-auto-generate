@@ -2,16 +2,16 @@
 export const VIDEO_WIDTH = 1080;
 export const VIDEO_HEIGHT = 1920;
 export const VIDEO_FPS = 30;
-export const DURATION_IN_SECONDS = 30;
-export const DURATION_IN_FRAMES = VIDEO_FPS * DURATION_IN_SECONDS; // 900
-
-// Scene timing (in frames)
+// @auto:timing-start
+export const DURATION_IN_SECONDS = 43;
+export const DURATION_IN_FRAMES = VIDEO_FPS * DURATION_IN_SECONDS;
 export const TITLE_START = 0;
-export const TITLE_END = VIDEO_FPS * 3; // 90 frames = 3 sec
+export const TITLE_END = VIDEO_FPS * 3;
 export const TERMINAL_START = TITLE_END;
-export const TERMINAL_END = VIDEO_FPS * 25; // 750 frames = 25 sec
+export const TERMINAL_END = VIDEO_FPS * 38;
 export const ENDING_START = TERMINAL_END;
-export const ENDING_END = DURATION_IN_FRAMES; // 900 frames = 30 sec
+export const ENDING_END = DURATION_IN_FRAMES;
+// @auto:timing-end
 
 // Brand colors — smilior
 export const BRAND = {

@@ -5,13 +5,15 @@ import { Typewriter } from '../components/Typewriter';
 
 const SCENE_DURATION = TERMINAL_END - TERMINAL_START;
 
+// @auto:tips-start
 const TIPS = [
-  { key: 'Ctrl + C', desc: '応答をキャンセル' },
-  { key: 'Ctrl + L', desc: '画面をクリア' },
-  { key: 'Escape', desc: '入力をキャンセル' },
-  { key: '/command', desc: 'スラッシュコマンド' },
-  { key: 'Tab', desc: 'オートコンプリート' },
+  { key: 'git stash', desc: '作業を一時退避' },
+  { key: 'git log --oneline', desc: '履歴を一行表示' },
+  { key: 'git diff --staged', desc: 'ステージ済みの差分確認' },
+  { key: 'git commit --amend', desc: '直前のコミットを修正' },
+  { key: 'git switch -', desc: '前のブランチに戻る' },
 ];
+// @auto:tips-end
 
 export const TerminalScene: React.FC = () => {
   const frame = useCurrentFrame();
@@ -118,14 +120,14 @@ export const TerminalScene: React.FC = () => {
         >
           {/* Command with typewriter */}
           <div style={{ marginBottom: 40 }}>
-            <Typewriter text="claude --shortcuts" startFrame={10} speed={2} />
+            {/* @auto:typewriter */}<Typewriter text="git --tips" startFrame={10} speed={2} />{/* @auto:typewriter-end */}
           </div>
 
           {/* Tips output */}
           {TIPS.map((tip, i) => {
-            // Synced to narration SRT timestamps (frames relative to TerminalScene start)
-            // Tip1@4.76s, Tip2@9.02s, Tip3@12.3s, Tip4@15s, Tip5@18.06s
-            const tipStartFrames = [143, 271, 369, 450, 542];
+            // @auto:tipframes-start
+            const tipStartFrames = [0, 122, 287, 498, 662];
+// @auto:tipframes-end
             const tipAppearFrame = tipStartFrames[i] ?? 45 + i * 20;
             const tipOpacity = interpolate(
               frame,
@@ -176,7 +178,7 @@ export const TerminalScene: React.FC = () => {
           })}
 
           {/* Cursor at bottom */}
-          {frame > 560 && (
+          {/* @auto:cursor-threshold */}{frame > 682 && (
             <div style={{ marginTop: 30 }}>
               <span style={{ color: BRAND.orange }}>$</span>
               <span

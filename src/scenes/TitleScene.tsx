@@ -81,7 +81,7 @@ export const TitleScene: React.FC = () => {
             margin: 0,
           }}
         >
-          Claude Code
+{/* @auto:title-main */}Git{/* @auto:title-main-end */}
         </h1>
         <p
           style={{
@@ -92,7 +92,7 @@ export const TitleScene: React.FC = () => {
             marginTop: 10,
           }}
         >
-          ショートカットキー 5選
+{/* @auto:title-sub */}時短コマンド 5選{/* @auto:title-sub-end */}
         </p>
       </div>
 
@@ -108,7 +108,7 @@ export const TitleScene: React.FC = () => {
       >
         <span style={{ color: BRAND.orange }}>~</span>
         <span style={{ color: '#525252' }}>$</span>
-        <span style={{ color: '#A3A3A3' }}>claude tips</span>
+        <span style={{ color: '#A3A3A3' }}>{/* @auto:command */}git --tips{/* @auto:command-end */}</span>
         <span
           style={{
             color: BRAND.orange,

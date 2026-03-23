@@ -1,0 +1,16 @@
+{
+  "title": {
+    "main": "Git",
+    "sub": "時短コマンド 5選"
+  },
+  "command": "git --tips",
+  "tips": [
+    { "key": "git stash", "desc": "作業を一時退避" },
+    { "key": "git log --oneline", "desc": "履歴を一行表示" },
+    { "key": "git diff --staged", "desc": "ステージ済みの差分確認" },
+    { "key": "git commit --amend", "desc": "直前のコミットを修正" },
+    { "key": "git switch -", "desc": "前のブランチに戻る" }
+  ],
+  "narration": "Gitの時短コマンド、5つ紹介します。\nまずgit stash。作業中の変更を一時的に退避できます。\n次にgit log --oneline。コミット履歴をコンパクトに確認できます。\ngit diff --stagedで、ステージ済みの変更だけを確認。\ngit commit --amendは、直前のコミットメッセージをサッと修正できます。\n最後にgit switch -。一つ前のブランチにすぐ戻れます。",
+  "bgm": "paulyudin-minimal-164833.mp3"
+}
