@@ -5,3 +5,4 @@ output/
 *.wav
 *.mp3
 *.mp4
+public/narration.wav
