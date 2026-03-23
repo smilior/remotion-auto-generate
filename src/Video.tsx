@@ -40,8 +40,10 @@ export const SmiliorTipsVideo: React.FC = () => {
         <Audio src={staticFile('narration.wav')} />
       </Sequence>
 
-      {/* Subtitles — synced to narration start */}
-      <Subtitle subtitles={subtitles} offsetFrames={TERMINAL_START} />
+      {/* Subtitles — inside Sequence so useCurrentFrame is relative to narration start */}
+      <Sequence from={TERMINAL_START}>
+        <Subtitle subtitles={subtitles} />
+      </Sequence>
     </AbsoluteFill>
   );
 };

@@ -190,26 +190,8 @@ export const TerminalScene: React.FC = () => {
         </div>
       </div>
 
-      {/* Subtitle area */}
-      <div
-        style={{
-          padding: '40px 20px',
-          textAlign: 'center',
-        }}
-      >
-        <p
-          style={{
-            fontFamily: FONTS.sans,
-            fontSize: 30,
-            color: '#D4D4D4',
-          }}
-        >
-          ショートカットキーで
-          <span style={{ color: '#FFFFFF', fontWeight: 600 }}>
-            作業効率を最大化
-          </span>
-        </p>
-      </div>
+      {/* Spacer for subtitle overlay area */}
+      <div style={{ height: 100 }} />
     </AbsoluteFill>
   );
 };

@@ -37,13 +37,11 @@ function timeToSec(time: string): number {
 
 type Props = {
   subtitles: SubtitleEntry[];
-  /** Frame offset: the global frame where this subtitle track starts */
-  offsetFrames?: number;
 };
 
-export const Subtitle: React.FC<Props> = ({ subtitles, offsetFrames = 0 }) => {
-  const globalFrame = useCurrentFrame();
-  const currentSec = (globalFrame - offsetFrames) / VIDEO_FPS;
+export const Subtitle: React.FC<Props> = ({ subtitles }) => {
+  const frame = useCurrentFrame();
+  const currentSec = frame / VIDEO_FPS;
 
   const active = subtitles.find(
     (s) => currentSec >= s.startSec && currentSec < s.endSec,
@@ -58,13 +56,14 @@ export const Subtitle: React.FC<Props> = ({ subtitles, offsetFrames = 0 }) => {
         bottom: 80,
         left: 40,
         right: 40,
+        zIndex: 100,
         display: 'flex',
         justifyContent: 'center',
       }}
     >
       <div
         style={{
-          backgroundColor: 'rgba(0, 0, 0, 0.75)',
+          backgroundColor: 'rgba(0, 0, 0, 0.8)',
           borderRadius: 12,
           padding: '16px 28px',
           maxWidth: '90%',
