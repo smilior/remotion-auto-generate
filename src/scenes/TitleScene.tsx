@@ -1,13 +1,26 @@
 import { AbsoluteFill, useCurrentFrame, interpolate, Easing } from 'remotion';
-import { BRAND, FONTS } from '../constants';
+import { BRAND, FONTS, TITLE_END, TITLE_START } from '../constants';
+
+const SCENE_DURATION = TITLE_END - TITLE_START;
 
 export const TitleScene: React.FC = () => {
   const frame = useCurrentFrame();
 
-  const opacity = interpolate(frame, [0, 20], [0, 1], {
+  // Fade in at start
+  const fadeIn = interpolate(frame, [0, 20], [0, 1], {
     extrapolateRight: 'clamp',
     easing: Easing.out(Easing.ease),
   });
+
+  // Fade out at end
+  const fadeOut = interpolate(
+    frame,
+    [SCENE_DURATION - 15, SCENE_DURATION],
+    [1, 0],
+    { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' },
+  );
+
+  const opacity = fadeIn * fadeOut;
 
   const titleY = interpolate(frame, [5, 25], [30, 0], {
     extrapolateRight: 'clamp',

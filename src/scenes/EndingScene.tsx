@@ -1,5 +1,6 @@
 import { AbsoluteFill, useCurrentFrame, interpolate, Easing } from 'remotion';
 import { BRAND, FONTS } from '../constants';
+import { SmiliorLogo } from '../components/SmiliorLogo';
 
 export const EndingScene: React.FC = () => {
   const frame = useCurrentFrame();
@@ -28,35 +29,8 @@ export const EndingScene: React.FC = () => {
       }}
     >
       {/* Logo */}
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: 16,
-          marginBottom: 60,
-        }}
-      >
-        <div
-          style={{
-            width: 56,
-            height: 56,
-            borderRadius: '50%',
-            background: `linear-gradient(135deg, ${BRAND.orange}, ${BRAND.orangeDark})`,
-          }}
-        />
-        <span
-          style={{
-            fontFamily: FONTS.sans,
-            fontSize: 44,
-            fontWeight: 600,
-            background: `linear-gradient(135deg, ${BRAND.orange}, ${BRAND.orangeLight})`,
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-          }}
-        >
-          smilior
-        </span>
+      <div style={{ marginBottom: 60 }}>
+        <SmiliorLogo size="lg" />
       </div>
 
       {/* Tagline */}

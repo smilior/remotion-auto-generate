@@ -1,5 +1,9 @@
 import { AbsoluteFill, useCurrentFrame, interpolate, Easing } from 'remotion';
-import { BRAND, FONTS, TERMINAL } from '../constants';
+import { BRAND, FONTS, TERMINAL, TERMINAL_END, TERMINAL_START } from '../constants';
+import { SmiliorLogo } from '../components/SmiliorLogo';
+import { Typewriter } from '../components/Typewriter';
+
+const SCENE_DURATION = TERMINAL_END - TERMINAL_START;
 
 const TIPS = [
   { key: 'Ctrl + C', desc: '応答をキャンセル' },
@@ -12,20 +16,17 @@ const TIPS = [
 export const TerminalScene: React.FC = () => {
   const frame = useCurrentFrame();
 
-  // Fade in
-  const opacity = interpolate(frame, [0, 15], [0, 1], {
+  // Fade in / out
+  const fadeIn = interpolate(frame, [0, 15], [0, 1], {
     extrapolateRight: 'clamp',
   });
-
-  // Command typing effect
-  const commandText = 'claude --shortcuts';
-  const charsVisible = Math.min(
-    commandText.length,
-    Math.floor(interpolate(frame, [10, 40], [0, commandText.length], {
-      extrapolateLeft: 'clamp',
-      extrapolateRight: 'clamp',
-    })),
+  const fadeOut = interpolate(
+    frame,
+    [SCENE_DURATION - 15, SCENE_DURATION],
+    [1, 0],
+    { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' },
   );
+  const opacity = fadeIn * fadeOut;
 
   return (
     <AbsoluteFill
@@ -45,25 +46,7 @@ export const TerminalScene: React.FC = () => {
           padding: '0 10px',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <div
-            style={{
-              width: 32,
-              height: 32,
-              borderRadius: '50%',
-              background: `linear-gradient(135deg, ${BRAND.orange}, ${BRAND.orangeDark})`,
-            }}
-          />
-          <span
-            style={{
-              fontFamily: FONTS.mono,
-              fontSize: 22,
-              color: '#737373',
-            }}
-          >
-            smilior
-          </span>
-        </div>
+        <SmiliorLogo size="sm" />
         <span
           style={{
             fontFamily: FONTS.mono,
@@ -133,22 +116,9 @@ export const TerminalScene: React.FC = () => {
             lineHeight: 2,
           }}
         >
-          {/* Command */}
+          {/* Command with typewriter */}
           <div style={{ marginBottom: 40 }}>
-            <span style={{ color: BRAND.orange }}>$</span>
-            <span style={{ color: TERMINAL.text, marginLeft: 12 }}>
-              {commandText.slice(0, charsVisible)}
-            </span>
-            {charsVisible < commandText.length && (
-              <span
-                style={{
-                  color: BRAND.orange,
-                  opacity: Math.floor(frame / 8) % 2 === 0 ? 1 : 0,
-                }}
-              >
-                |
-              </span>
-            )}
+            <Typewriter text="claude --shortcuts" startFrame={10} speed={1.2} />
           </div>
 
           {/* Tips output */}
