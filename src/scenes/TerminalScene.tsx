@@ -118,12 +118,15 @@ export const TerminalScene: React.FC = () => {
         >
           {/* Command with typewriter */}
           <div style={{ marginBottom: 40 }}>
-            <Typewriter text="claude --shortcuts" startFrame={10} speed={1.2} />
+            <Typewriter text="claude --shortcuts" startFrame={10} speed={2} />
           </div>
 
           {/* Tips output */}
           {TIPS.map((tip, i) => {
-            const tipAppearFrame = 45 + i * 20;
+            // Synced to narration SRT timestamps (frames relative to TerminalScene start)
+            // Tip1@4.76s, Tip2@9.02s, Tip3@12.3s, Tip4@15s, Tip5@18.06s
+            const tipStartFrames = [143, 271, 369, 450, 542];
+            const tipAppearFrame = tipStartFrames[i] ?? 45 + i * 20;
             const tipOpacity = interpolate(
               frame,
               [tipAppearFrame, tipAppearFrame + 12],
@@ -173,7 +176,7 @@ export const TerminalScene: React.FC = () => {
           })}
 
           {/* Cursor at bottom */}
-          {frame > 140 && (
+          {frame > 560 && (
             <div style={{ marginTop: 30 }}>
               <span style={{ color: BRAND.orange }}>$</span>
               <span
